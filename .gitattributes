@@ -1,0 +1,25 @@
+* text eol=lf
+
+# Keep Windows batch scripts with CRLF
+*.bat text eol=crlf
+
+# Binary files (no EOL normalization)
+*.png -text
+*.jpg -text
+*.jpeg -text
+*.gif -text
+*.webp -text
+*.ico -text
+*.keystore -text
+*.jar -text
+*.zip -text
+*.rar -text
+*.7z -text
+*.ttf -text
+*.otf -text
+*.woff -text
+*.woff2 -text
+android/gradle/wrapper/gradle-wrapper.jar -text
+
+# iOS binaries/assets
+ios/**/Images.xcassets/** -text

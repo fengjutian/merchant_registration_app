@@ -1,85 +1,85 @@
 # Merchant Registration App
 
-本项目为 React Native 应用，用于商户注册流程开发与演示。本文档提供在 Windows 上的环境要求与快速上手，以及针对常见构建问题的解决方案。
+鏈」鐩负 React Native 搴旂敤锛岀敤浜庡晢鎴锋敞鍐屾祦绋嬪紑鍙戜笌婕旂ず銆傛湰鏂囨。鎻愪緵鍦?Windows 涓婄殑鐜瑕佹眰涓庡揩閫熶笂鎵嬶紝浠ュ強閽堝甯歌鏋勫缓闂鐨勮В鍐虫柟妗堛€?
 
-## 技术栈
-- React Native：`0.70.6`（`package.json:14`）
-- React：`18.1.0`（`package.json:13`）
-- Android Gradle Plugin：`7.2.1`（`android/build.gradle:23`）
-- Gradle Wrapper：`7.5.1`（Gradle 输出）
-- 编译/目标 SDK：`31`（`android/build.gradle:7-8`）
-- Hermes 启用：`enableHermes: true`（`android/app/build.gradle:48-51`）
+## 鎶€鏈爤
+- React Native锛歚0.70.6`锛坄package.json:14`锛?
+- React锛歚18.1.0`锛坄package.json:13`锛?
+- Android Gradle Plugin锛歚7.2.1`锛坄android/build.gradle:23`锛?
+- Gradle Wrapper锛歚7.5.1`锛圙radle 杈撳嚭锛?
+- 缂栬瘧/鐩爣 SDK锛歚31`锛坄android/build.gradle:7-8`锛?
+- Hermes 鍚敤锛歚enableHermes: true`锛坄android/app/build.gradle:48-51`锛?
 
-## 环境要求（Windows）
-- Node.js：建议使用 `16.x`（仓库包含 `.node-version:1`，亦兼容 18）
-- JDK：必须使用 `17`（避免 Java 24 导致 Gradle 报错）
-- Android Studio：安装 SDK Platform 31、Platform Tools、AVD（虚拟设备）
-- ANDROID_HOME：指向 `C:\Users\<你的用户名>\AppData\Local\Android\Sdk`
+## 鐜瑕佹眰锛圵indows锛?
+- Node.js锛氬缓璁娇鐢?`16.x`锛堜粨搴撳寘鍚?`.node-version:1`锛屼害鍏煎 18锛?
+- JDK锛氬繀椤讳娇鐢?`17`锛堥伩鍏?Java 24 瀵艰嚧 Gradle 鎶ラ敊锛?
+- Android Studio锛氬畨瑁?SDK Platform 31銆丳latform Tools銆丄VD锛堣櫄鎷熻澶囷級
+- ANDROID_HOME锛氭寚鍚?`C:\Users\<浣犵殑鐢ㄦ埛鍚?\AppData\Local\Android\Sdk`
 
-## 快速开始
-1. 安装依赖：
+## 蹇€熷紑濮?
+1. 瀹夎渚濊禆锛?
    ```
    npm install
    ```
-2. 启动 Metro：
+2. 鍚姩 Metro锛?
    ```
    npm run start
    ```
-3. 运行 Android：
+3. 杩愯 Android锛?
    ```
    npm run android
    ```
 
-## 常见问题与解决
+## 甯歌闂涓庤В鍐?
 
 ### 1) Unsupported class file major version 68
-- 现象：Gradle 报错 “Unsupported class file major version 68”（对应 Java 24）。
-- 原因：项目的 AGP/Gradle（`7.2.1/7.5.1`）仅兼容 JDK 11/17，不支持 JDK 24。
-- 解决：安装 JDK 17 并设置环境变量（PowerShell 示例）：
+- 鐜拌薄锛欸radle 鎶ラ敊 鈥淯nsupported class file major version 68鈥濓紙瀵瑰簲 Java 24锛夈€?
+- 鍘熷洜锛氶」鐩殑 AGP/Gradle锛坄7.2.1/7.5.1`锛変粎鍏煎 JDK 11/17锛屼笉鏀寔 JDK 24銆?
+- 瑙ｅ喅锛氬畨瑁?JDK 17 骞惰缃幆澧冨彉閲忥紙PowerShell 绀轰緥锛夛細
   ```
   $env:JAVA_HOME = "C:\\Program Files\\Java\\jdk-17.0.x"
   $env:PATH = "$env:JAVA_HOME\\bin;$env:PATH"
   ```
-  可选：在 `android/gradle.properties` 添加：
+  鍙€夛細鍦?`android/gradle.properties` 娣诲姞锛?
   ```
   org.gradle.java.home=C:\\Program Files\\Java\\jdk-17.0.x
   ```
-  验证：
+  楠岃瘉锛?
   ```
   d:\GitHub\merchant_registration_app\android\gradlew.bat -v
   ```
-  输出中的 `JVM:` 应为 `17.x`。
+  杈撳嚭涓殑 `JVM:` 搴斾负 `17.x`銆?
 
-### 2) `'adb' 不是内部或外部命令`
-- 原因：未安装 Platform Tools 或未将其加入 PATH。
-- 解决：Android Studio 安装 “Android SDK Platform-Tools”，并加入 PATH：
+### 2) `'adb' 涓嶆槸鍐呴儴鎴栧閮ㄥ懡浠
+- 鍘熷洜锛氭湭瀹夎 Platform Tools 鎴栨湭灏嗗叾鍔犲叆 PATH銆?
+- 瑙ｅ喅锛欰ndroid Studio 瀹夎 鈥淎ndroid SDK Platform-Tools鈥濓紝骞跺姞鍏?PATH锛?
   ```
-  $env:ANDROID_HOME = "C:\\Users\\<你>\\AppData\\Local\\Android\\Sdk"
+  $env:ANDROID_HOME = "C:\\Users\\<浣?\\AppData\\Local\\Android\\Sdk"
   $env:PATH = "$env:ANDROID_HOME\\platform-tools;$env:PATH"
   adb version
   adb devices
   ```
 
-### 3) `No emulators found` 无法自动启动模拟器
-- 在 Android Studio → Device Manager 创建 AVD（API Level 31），点击启动；或连接真机并启用 USB 调试。
-- 确认设备：
+### 3) `No emulators found` 鏃犳硶鑷姩鍚姩妯℃嫙鍣?
+- 鍦?Android Studio 鈫?Device Manager 鍒涘缓 AVD锛圓PI Level 31锛夛紝鐐瑰嚮鍚姩锛涙垨杩炴帴鐪熸満骞跺惎鐢?USB 璋冭瘯銆?
+- 纭璁惧锛?
   ```
   adb devices
   ```
 
-## npm 脚本
-- `start`：启动 Metro（`package.json:8`）
-- `android`：构建并安装到设备（`package.json:6`）
-- `ios`：在 macOS 上运行 iOS（`package.json:7`）
-- `lint`：运行 ESLint（`package.json:10`）
-- `test`：运行 Jest（`package.json:9`）
+## npm 鑴氭湰
+- `start`锛氬惎鍔?Metro锛坄package.json:8`锛?
+- `android`锛氭瀯寤哄苟瀹夎鍒拌澶囷紙`package.json:6`锛?
+- `ios`锛氬湪 macOS 涓婅繍琛?iOS锛坄package.json:7`锛?
+- `lint`锛氳繍琛?ESLint锛坄package.json:10`锛?
+- `test`锛氳繍琛?Jest锛坄package.json:9`锛?
 
-## 目录与关键配置
-- `android/build.gradle:23`：AGP 版本 `com.android.tools.build:gradle:7.2.1`
-- `android/app/build.gradle:48-51`：Hermes 开关与 React 配置
-- `android/gradle.properties:11`：Gradle JVM 参数（可添加 `org.gradle.java.home`）
-- `android/settings.gradle:1-4`：原生模块与插件加载
+## 鐩綍涓庡叧閿厤缃?
+- `android/build.gradle:23`锛欰GP 鐗堟湰 `com.android.tools.build:gradle:7.2.1`
+- `android/app/build.gradle:48-51`锛欻ermes 寮€鍏充笌 React 閰嶇疆
+- `android/gradle.properties:11`锛欸radle JVM 鍙傛暟锛堝彲娣诲姞 `org.gradle.java.home`锛?
+- `android/settings.gradle:1-4`锛氬師鐢熸ā鍧椾笌鎻掍欢鍔犺浇
 
-## 提示
-- 终端建议使用 PowerShell；若使用命令提示符，请按需调整环境变量语法。
-- 初次构建可能需要额外时间下载 Gradle/SDK 组件，请保持网络畅通。
+## 鎻愮ず
+- 缁堢寤鸿浣跨敤 PowerShell锛涜嫢浣跨敤鍛戒护鎻愮ず绗︼紝璇锋寜闇€璋冩暣鐜鍙橀噺璇硶銆?
+- 鍒濇鏋勫缓鍙兘闇€瑕侀澶栨椂闂翠笅杞?Gradle/SDK 缁勪欢锛岃淇濇寔缃戠粶鐣呴€氥€

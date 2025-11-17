@@ -59,14 +59,14 @@ export default (): React.ReactElement => {
 
 
         </Layout>
-      <BottomNavigation
-        selectedIndex={selectedIndex}
-        onSelect={index => setSelectedIndex(index)}
-      >
-        <BottomNavigationTab title='USERS' />
-        <BottomNavigationTab title='ORDERS' />
-        <BottomNavigationTab title='TRANSACTIONS' />
-      </BottomNavigation>
+        <BottomNavigation
+          selectedIndex={selectedIndex}
+          onSelect={index => setSelectedIndex(index)}
+        >
+        <BottomNavigationTab title='商家' />
+        <BottomNavigationTab title='商家列表' />
+        <BottomNavigationTab title='我的' />
+        </BottomNavigation>
       </ApplicationProvider>
     </>
   )

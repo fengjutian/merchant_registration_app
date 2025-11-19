@@ -26,7 +26,9 @@ import {
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import * as eva from '@eva-design/eva';
 import { BottomNavigation, BottomNavigationTab } from '@ui-kitten/components';
-
+import Home from './pages/home';
+import My from './src/pages/my';
+import MerchantList from './src/pages/merchant_list';
 /**
  * Use any valid `name` property from eva icons (e.g `github`, or `heart-outline`)
  * https://akveo.github.io/eva-icons
@@ -49,15 +51,31 @@ const styles = StyleSheet.create({
   },
 });
 
+
+
 export default (): React.ReactElement => {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
+
+  const pageList = () => {
+    if (selectedIndex === 0) {
+      return <Home />;
+    }
+    if (selectedIndex === 1) {
+      return <MerchantList />;
+    }
+    if (selectedIndex === 2) {
+      return <My />;
+    }
+    return null;
+  };
+
+
   return (
     <>
       <IconRegistry icons={EvaIconsPack}/>
       <ApplicationProvider {...eva} theme={eva.light}>
         <Layout style={styles.container}>
-
-
+          {pageList()}
         </Layout>
         <BottomNavigation
           selectedIndex={selectedIndex}

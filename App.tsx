@@ -26,7 +26,7 @@ import {
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import * as eva from '@eva-design/eva';
 import { BottomNavigation, BottomNavigationTab } from '@ui-kitten/components';
-import Home from './pages/home';
+import Home from './src/pages/home';
 import My from './src/pages/my';
 import MerchantList from './src/pages/merchant_list';
 /**

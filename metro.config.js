@@ -6,6 +6,12 @@
  */
 
 module.exports = {
+  resolver: {
+    nodeModulesPaths: [require('path').resolve(__dirname, 'node_modules')],
+    unstable_enableSymlinks: true,
+    unstable_enablePackageExports: true,
+  },
+  watchFolders: [require('path').resolve(__dirname, 'node_modules')],
   transformer: {
     getTransformOptions: async () => ({
       transform: {

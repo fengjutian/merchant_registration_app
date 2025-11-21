@@ -11,21 +11,11 @@
  */
 
 import React from 'react';
-import {
-  ImageProps,
-  StyleSheet,
-} from 'react-native';
-import {
-  ApplicationProvider,
-  Button,
-  Icon,
-  IconRegistry,
-  Layout,
-  Text,
-} from '@ui-kitten/components';
-import { EvaIconsPack } from '@ui-kitten/eva-icons';
+import {StyleSheet} from 'react-native';
+import {ApplicationProvider, IconRegistry, Layout} from '@ui-kitten/components';
+import {EvaIconsPack} from '@ui-kitten/eva-icons';
 import * as eva from '@eva-design/eva';
-import { BottomNavigation, BottomNavigationTab } from '@ui-kitten/components';
+import {BottomNavigation, BottomNavigationTab} from '@ui-kitten/components';
 import Home from './src/pages/home';
 import My from './src/pages/my';
 import MerchantList from './src/pages/merchant_list';
@@ -33,9 +23,6 @@ import MerchantList from './src/pages/merchant_list';
  * Use any valid `name` property from eva icons (e.g `github`, or `heart-outline`)
  * https://akveo.github.io/eva-icons
  */
-const HeartIcon = (props?: Partial<ImageProps>): React.ReactElement<ImageProps> => (
-  <Icon {...props} name='heart'/>
-);
 
 const styles = StyleSheet.create({
   container: {
@@ -50,8 +37,6 @@ const styles = StyleSheet.create({
     marginVertical: 16,
   },
 });
-
-
 
 export default (): React.ReactElement => {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -68,24 +53,19 @@ export default (): React.ReactElement => {
     }
     return null;
   };
-
-
   return (
     <>
-      <IconRegistry icons={EvaIconsPack}/>
+      <IconRegistry icons={EvaIconsPack} />
       <ApplicationProvider {...eva} theme={eva.light}>
-        <Layout style={styles.container}>
-          {pageList()}
-        </Layout>
+        <Layout style={styles.container}>{pageList()}</Layout>
         <BottomNavigation
           selectedIndex={selectedIndex}
-          onSelect={index => setSelectedIndex(index)}
-        >
-        <BottomNavigationTab title='商家' />
-        <BottomNavigationTab title='商家列表' />
-        <BottomNavigationTab title='我的' />
+          onSelect={index => setSelectedIndex(index)}>
+          <BottomNavigationTab title="商家" />
+          <BottomNavigationTab title="商家列表" />
+          <BottomNavigationTab title="我的" />
         </BottomNavigation>
       </ApplicationProvider>
     </>
-  )
+  );
 };
